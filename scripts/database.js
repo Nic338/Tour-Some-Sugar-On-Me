@@ -129,6 +129,41 @@ const database = {
       {id: 15, bandId: 2, venueId: 3, date: "3/18/2023"},
       {id: 16, bandId: 4, venueId: 6, date: "3/16/2023"},
    ] ,
+    bandMembers: [
+      {firstName: "Jemaine", lastName: "Clement", bandId: 7, role: "piano", born: 1974},
+      {firstName: "Bret", lastName: "McKenzie", bandId: 7, role: "piano", born: 1976},
+      {firstName: "Chet", lastName: "Nutly", bandId: 8, role: "lead singer", born: 1968},
+      {firstName: "Allyson", lastName: "Circle", bandId: 8, role: "rhythm guitar", born: 1973},
+      {firstName: "Gomer", lastName: "Yelton", bandId: 8, role: "keys", born: 1975},
+      {firstName: "David", lastName: "Crumble", bandId: 8, role: "drummer", born: 1975},
+      {firstName: "Nikkie", lastName: "Crumble", bandId: 8, role: "lead guitar", born: 1977},
+      {firstName: "Stacy", lastName: "Slater", bandId: 6, role: "lead singer", born: 1986},
+      {firstName: "Josh", lastName: "Grover", bandId: 6, role: "lead guitar", born: 1985},
+      {firstName: "Kate", lastName: "Slater", bandId: 6, role: "bass guitar", born: 1984},
+      {firstName: "Troy", lastName: "Barnes", bandId: 6, role: "drummer", born: 1985},
+      {firstName: "Gabriella", lastName: "Nielson", bandId: 5, role: "lead singer", born: 1982},
+      {firstName: "Kris", lastName: "Kristoffensen", bandId: 5, role: "guitar", born: 1989},
+      {firstName: "Gregory", lastName: "Peck", bandId: 5, role: "guitar", born: 1979},
+      {firstName: "Tony", lastName: "Stevenson", bandId: 5, role: "bass guitar", born: 1985},
+      {firstName: "Liliana", lastName: "Sandersen", bandId: 5, role: "keys", born: 1984},
+      {firstName: "Ophelia", lastName: "Mardoon", bandId: 5, role: "keys", born: 1984},
+      {firstName: "David", lastName: "Cross", bandId: 5, role: "drummer", born: 1978},
+      {firstName: "Arthur", lastName: "Creed", bandId: 4, role: "lead singer", born: 1983},
+      {firstName: "Jimmy", lastName: "Hampton", bandId: 4, role: "lead guitar", born: 1983},
+      {firstName: "Kevin", lastName: "O'Neal", bandId: 4, role: "drummer", born: 1983},
+      {firstName: "Andy", lastName: "Dwyer", bandId: 3, role: "lead singer and guitar", born: 1981},
+      {firstName: "James", lastName: "Pierson", bandId: 3, role: "drummer", born: 1980},
+      {firstName: "Michael", lastName: "Chang", bandId: 3, role: "bass guitar", born: 1982},
+      {firstName: "Burly", lastName: "", bandId: 3, role: "guitar", born: 1982},
+      {firstName: "Rivers", lastName: "", bandId: 3, role: "drummer", born: 1984},
+      {firstName: "Carl", lastName: "McDermond", bandId: 2, role: "lead singer", born: 1974},
+      {firstName: "Nick", lastName: "Polento", bandId: 2, role: "lead guitar", born: 1978},
+      {firstName: "Oscar", lastName: "Sanchez", bandId: 2, role: "drummer", born: 1974},
+      {firstName: "Amy", lastName: "Preece", bandId: 1, role: "lead singer", born: 1987},
+      {firstName: "Billy", lastName: "Schmorgan", bandId: 1, role: "lead guitar", born: 1979},
+      {firstName: "Kenny", lastName: "Flowers", bandId: 1, role: "bass guitar", born: 1979},
+      {firstName: "Horatio", lastName: "Almarez", bandId: 1, role: "drummer", born: 1980},
+    ]
 }
 
 
@@ -140,4 +175,7 @@ export const getVenues = () => {
 }
 export const getBookings = () => {
    return database.bookings.map(booking => ({...booking}))
+}
+export const getBandMembers = () => {
+   return database.bandMembers.map(bandMember => ({...bandMember}))
 }

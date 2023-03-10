@@ -1,8 +1,9 @@
-import { getBands, getBookings, getVenues } from "./database.js";
+import { getBands, getBookings, getVenues, getBandMembers } from "./database.js";
 
 const bands = getBands()
 const bookings = getBookings()
 const venues = getVenues()
+const bandMembers = getBandMembers()
 
 // const findCurrentBand = (booking) => {
 //     let currentBand = []
@@ -14,6 +15,16 @@ const venues = getVenues()
 //     }
 //     return currentBand
 // }
+const filterBandMembersByBands = (singleBand) => {
+    const currentBandMembers = []
+    for(const bandMember of bandMembers) {
+        if(singleBand.bandId === bandMember.bandId) {
+            currentBandMembers.push(`${bandMember.firstName} ${bandMember.lastName} (${bandMember.role})\n`)
+        }
+    }
+    // console.log(currentBandMembers)
+    return currentBandMembers.join("")
+}
 
 const filterBookingsByBands = (singleBand) => {
     const venueBookings = []
@@ -53,14 +64,11 @@ document.addEventListener("click", (clickEvent) => {
     if (itemClicked.id.startsWith("band")){
         const [,bandId] = itemClicked.id.split("--")
             for (const band of bands) {
-                // if (band.bandId === parseInt(bandId)) {
-                //     for(const booking of bookings) {
-                //         if (band.bandId === booking.bandId )  {
-                //            const matchingVenue = findVenue(booking)
                 if (band.bandId === parseInt(bandId)){
                     const bookings = filterBookingsByBands(band)
                     const venues = assignedVenueNames(bookings)
-                           window.alert(`Upcoming shows:\n${venues} \n`)
+                    const bandMembers = filterBandMembersByBands(band)
+                           window.alert(`${bandMembers} \n Upcoming shows:\n${venues} \n`)
                         }             
                     }
                     // window.alert(`These bands have this venue booked:•${band.name}\n`)
